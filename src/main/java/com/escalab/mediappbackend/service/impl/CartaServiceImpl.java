@@ -14,7 +14,7 @@ import com.escalab.mediappbackend.repo.ICartaRepo;
 import com.escalab.mediappbackend.service.ICartaService;
 
 @Service
-public class CartaServiceImpl implements UserDetailsService, ICartaService {
+public class CartaServiceImpl implements ICartaService {
 
 	@Autowired
 	private ICartaRepo repo;
@@ -46,10 +46,5 @@ public class CartaServiceImpl implements UserDetailsService, ICartaService {
 		return true;
 	}
 
-	@Override
-	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		// TODO Auto-generated method stub
-		return null;
-	}
 
 }
