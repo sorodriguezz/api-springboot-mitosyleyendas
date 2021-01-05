@@ -34,17 +34,12 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 		.requestMatchers()
 		.and()
 		.authorizeRequests()
-				.antMatchers("/swagger.ui.html/**").authenticated()
-				//.antMatchers("/consultas/**").permitAll()
-				//.antMatchers("/especialidades/**").authenticated()
-				//.antMatchers("/examenes/**").authenticated()
-				//.antMatchers("/medicos/**").authenticated()
-				//.antMatchers("/menus/**").authenticated()
-				.antMatchers("/tokens/**").permitAll()
-				//.antMatchers("/consultaexamenes/**").authenticated()
-				//.antMatchers("/pacientes/**").authenticated()
-				.antMatchers("/usuarios/").permitAll()
-				.antMatchers("/usuarios/getAll/**").hasRole("USER");
+			.antMatchers("/cartas/").permitAll()
+			.antMatchers("/swagger.ui.html/**").authenticated()
+			.antMatchers("/tokens/**").permitAll()
+			.antMatchers("/usuarios/").permitAll()
+			.antMatchers("/ediciones/").authenticated()
+			.antMatchers("/usuarios/getAll/*").hasRole("USER");
 	}
 
 }

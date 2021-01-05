@@ -1,12 +1,17 @@
 package com.escalab.mediappbackend.model;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -48,23 +53,22 @@ public class CartaModel {
 	@Column(name = "TIPO_CARTA", nullable = false, length = 30)
 	private String tipoCarta;
 
-//	
-//	@ManyToMany(fetch = FetchType.EAGER)
-//	@JoinTable(name = "COLECTION_CARD", joinColumns = @JoinColumn(name = "ID_CARD", referencedColumnName = "idCard"), inverseJoinColumns = @JoinColumn(name = "ID_COLECTION", referencedColumnName = "idColection"))
-//	private List<ColectionModel> colections;
-//	
+	
+	@ManyToMany(fetch = FetchType.EAGER)
+	@JoinTable(name = "COLECCION_CARTA", joinColumns = @JoinColumn(name = "ID_CARTA", referencedColumnName = "idCarta"), inverseJoinColumns = @JoinColumn(name = "ID_COLECCION", referencedColumnName = "idColeccion"))
+	private List<ColeccionModel> coleccion;
+	
 	@ManyToOne
 	@JoinColumn(name = "FK_ID_EDICION", nullable = false, foreignKey = @ForeignKey(name = "FK_ID_EDICION"))
 	private EdicionModel edicionModel;
 
 	public CartaModel() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public CartaModel(Integer idCarta, String nombreCarta, String costeCarta, String habilidadCarta, String imagenCarta,
 			String codigoCarta, String ilustradorCarta, String historiaCarta, String frecuenciaCarta,
-			String fuerzaCarta, String tipoCarta, EdicionModel edicionModel) {
+			String fuerzaCarta, String tipoCarta, List<ColeccionModel> coleccion, EdicionModel edicionModel) {
 		super();
 		this.idCarta = idCarta;
 		this.nombreCarta = nombreCarta;
@@ -77,6 +81,7 @@ public class CartaModel {
 		this.frecuenciaCarta = frecuenciaCarta;
 		this.fuerzaCarta = fuerzaCarta;
 		this.tipoCarta = tipoCarta;
+		this.coleccion = coleccion;
 		this.edicionModel = edicionModel;
 	}
 
@@ -168,6 +173,14 @@ public class CartaModel {
 		this.tipoCarta = tipoCarta;
 	}
 
+	public List<ColeccionModel> getColeccion() {
+		return coleccion;
+	}
+
+	public void setColeccion(List<ColeccionModel> coleccion) {
+		this.coleccion = coleccion;
+	}
+
 	public EdicionModel getEdicionModel() {
 		return edicionModel;
 	}
@@ -175,5 +188,5 @@ public class CartaModel {
 	public void setEdicionModel(EdicionModel edicionModel) {
 		this.edicionModel = edicionModel;
 	}
-	
+
 }
