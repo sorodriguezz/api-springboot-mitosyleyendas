@@ -18,7 +18,7 @@ public class CartaModel {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer idCarta;
 	
-	@Column(name = "NOMBRE_CARTA", nullable = false, unique = true, length = 30)
+	@Column(name = "NOMBRE_CARTA", nullable = false, length = 30)
 	private String nombreCarta;
 	
 	@Column(name = "COSTE_CARTA", nullable = false, length = 2)

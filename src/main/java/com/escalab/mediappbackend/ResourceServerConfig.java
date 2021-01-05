@@ -21,7 +21,6 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 	@Value("${security.jwt.resource-ids}")
 	private String resourceIds;
 	
-
 	@Override
 	public void configure(ResourceServerSecurityConfigurer resources) throws Exception {
 		resources.resourceId(resourceIds).tokenServices(tokenServices);
@@ -36,14 +35,14 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 		.and()
 		.authorizeRequests()
 				.antMatchers("/swagger.ui.html/**").authenticated()
-				.antMatchers("/consultas/**").permitAll()
-				.antMatchers("/especialidades/**").authenticated()
-				.antMatchers("/examenes/**").authenticated()
-				.antMatchers("/medicos/**").authenticated()
-				.antMatchers("/menus/**").authenticated()
+				//.antMatchers("/consultas/**").permitAll()
+				//.antMatchers("/especialidades/**").authenticated()
+				//.antMatchers("/examenes/**").authenticated()
+				//.antMatchers("/medicos/**").authenticated()
+				//.antMatchers("/menus/**").authenticated()
 				.antMatchers("/tokens/**").permitAll()
-				.antMatchers("/consultaexamenes/**").authenticated()
-				.antMatchers("/pacientes/**").authenticated()
+				//.antMatchers("/consultaexamenes/**").authenticated()
+				//.antMatchers("/pacientes/**").authenticated()
 				.antMatchers("/usuarios/").permitAll()
 				.antMatchers("/usuarios/getAll/**").hasRole("USER");
 	}
