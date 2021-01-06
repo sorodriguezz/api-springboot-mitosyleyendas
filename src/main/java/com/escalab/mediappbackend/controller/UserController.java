@@ -22,19 +22,15 @@ public class UserController {
 	
 	@Autowired
 	private IUsuarioService userService;
-	
-	@GetMapping
-	public ResponseEntity<List<Usuario>> listar(){
-		List<Usuario> lista = userService.listar();
-		return new ResponseEntity<List<Usuario>>(lista, HttpStatus.OK);
-	}
-	
-	@GetMapping("/getAll")
+
+//Listar usuarios
+	@GetMapping("/lista")
 	public ResponseEntity<List<Usuario>> getAll(){
 		List<Usuario> lista = userService.listar();
 		return new ResponseEntity<List<Usuario>>(lista, HttpStatus.OK);
 	}
-	
+
+//ListarUsuario por ID
 	@GetMapping("/{id}")
 	public ResponseEntity<Usuario> listarPorId(@PathVariable("id") Integer id){
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
@@ -47,7 +43,6 @@ public class UserController {
 		}else {
 			return new ResponseEntity<Usuario>(new Usuario(), HttpStatus.UNAUTHORIZED);
 		}
-		
 	}
 
 }

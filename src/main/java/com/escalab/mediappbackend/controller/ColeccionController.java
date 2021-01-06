@@ -46,7 +46,7 @@ public class ColeccionController {
 		List<ColeccionModel> lista = coleccionService.listar();
 		return new ResponseEntity<List<ColeccionModel>>(lista, HttpStatus.OK);
 	}
-	
+
 //InsertarColeccion
 	@PostMapping
 	public ResponseEntity<Object> registrar(@Valid @RequestBody ColeccionModel coleccion) {
@@ -54,7 +54,7 @@ public class ColeccionController {
 		URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(coleccion.getIdColeccion()).toUri();
 		return ResponseEntity.created(location).build();
 	}
-	
+
 //EditarColeccion
 	@PutMapping
 	public ResponseEntity<ColeccionModel> modificar(@Valid @RequestBody ColeccionModel coleccion){

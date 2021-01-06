@@ -15,13 +15,13 @@ public class EdicionModel {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer idEdicion;
 	
-	@Column(name = "NOMBRE_EDICION", nullable = false, unique = true, length = 30)
+	@Column(name = "NOMBRE_EDICION", nullable = false, length = 30)
 	private String nombreEdicion;
 	
-	@Column(name = "ANIO_EDICION" , nullable = false, unique = true, length = 4)
+	@Column(name = "ANIO_EDICION" , nullable = false,  length = 4)
 	private String anioEdicion;
 	
-	@Column(name = "NUMERO_CARTAS_EDICION", nullable = false, unique = true, length = 3)
+	@Column(name = "NUMERO_CARTAS_EDICION", nullable = false, length = 3)
 	private String numeroCartasEdicion;
 
 	public EdicionModel() {

@@ -18,7 +18,7 @@ public class GrupoColeccionModel {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer idGrupoColeccion;
 	
-	@Column(name = "NOMBRE_GRUPO_COLECCION", nullable = false, unique = true, length = 30)
+	@Column(name = "NOMBRE_GRUPO_COLECCION", nullable = false, length = 30)
 	private String nombreGrupoColeccion;
 	
 	@OneToOne(targetEntity = Usuario.class, fetch = FetchType.EAGER)

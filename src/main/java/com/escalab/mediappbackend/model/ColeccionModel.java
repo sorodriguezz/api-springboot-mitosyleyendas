@@ -18,7 +18,7 @@ public class ColeccionModel {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer idColeccion;
 	
-	@Column(name = "NOMBRE_COLECCION", nullable = false, unique = true, length = 30)
+	@Column(name = "NOMBRE_COLECCION", nullable = false, length = 30)
 	private String nombreColeccion;
 	
 	@ManyToOne

@@ -39,14 +39,14 @@ public class EdicionController {
 			return new ResponseEntity<EdicionModel>(em, HttpStatus.OK);
 		}
 	}
-	
+
 //ListarEdiciones
 	@GetMapping("/lista")
 	public ResponseEntity<List<EdicionModel>> listar(){
 		List<EdicionModel> lista = edicionService.listar();
 		return new ResponseEntity<List<EdicionModel>>(lista, HttpStatus.OK);
 	}
-	
+
 //InsertarEdiciones
 	@PostMapping
 	public ResponseEntity<Object> registrar(@Valid @RequestBody EdicionModel edicion){
@@ -54,14 +54,14 @@ public class EdicionController {
 		URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(edicion.getIdEdicion()).toUri();
 		return ResponseEntity.created(location).build();
 	}
-	
+
 //EditarEdicion
 	@PutMapping
 	public ResponseEntity<EdicionModel> modificar(@Valid @RequestBody EdicionModel edicion){
 		EdicionModel em = edicionService.modificar(edicion);
 		return new ResponseEntity<EdicionModel>(em, HttpStatus.OK);
 	}
-	
+
 //EliminarEdicion
 	@DeleteMapping("/{id}")
 	public ResponseEntity<Object> eliminar(@PathVariable("id") Integer id){
