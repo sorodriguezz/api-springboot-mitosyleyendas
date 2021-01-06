@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.escalab.mediappbackend.dto.EdicionDTO;
 import com.escalab.mediappbackend.model.EdicionModel;
 import com.escalab.mediappbackend.repo.IEdicionRepo;
 import com.escalab.mediappbackend.service.IEdicionService;
@@ -15,6 +16,7 @@ public class EdicionServiceImpl implements IEdicionService {
 
 	@Autowired
 	private IEdicionRepo repo;
+	
 	
 	@Override
 	public EdicionModel registrar(EdicionModel obj) {
@@ -42,5 +44,11 @@ public class EdicionServiceImpl implements IEdicionService {
 		repo.deleteById(id);
 		return true;
 	}
+
+	@Override
+	public List<EdicionDTO> findEdicion() {
+		return repo.findEdicion();
+	}
+	
 
 }
