@@ -10,7 +10,6 @@ public class GrupoColeccionDTO extends ResourceSupport {
 	
 	private Integer idGrupoColeccion;
 	private Usuario usuario;
-	private ColeccionModel coleccion;
 	
 	public Integer getIdGrupoColeccion() {
 		return idGrupoColeccion;
@@ -23,12 +22,6 @@ public class GrupoColeccionDTO extends ResourceSupport {
 	}
 	public void setUsuario(Usuario usuario) {
 		this.usuario = usuario;
-	}
-	public ColeccionModel getColeccion() {
-		return coleccion;
-	}
-	public void setColeccion(ColeccionModel coleccion) {
-		this.coleccion = coleccion;
 	}
 	
 }
