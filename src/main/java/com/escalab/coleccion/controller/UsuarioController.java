@@ -18,7 +18,7 @@ import com.escalab.coleccion.service.IUsuarioService;
 
 @RestController
 @RequestMapping("/usuarios")
-public class UserController {
+public class UsuarioController {
 	
 	@Autowired
 	private IUsuarioService userService;

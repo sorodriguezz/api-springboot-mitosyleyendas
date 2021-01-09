@@ -18,7 +18,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
-import com.escalab.coleccion.dto.EdicionDTO;
 import com.escalab.coleccion.exception.ModeloNotFoundException;
 import com.escalab.coleccion.model.EdicionModel;
 import com.escalab.coleccion.service.IEdicionService;
@@ -40,13 +39,6 @@ public class EdicionController {
 			return new ResponseEntity<EdicionModel>(em, HttpStatus.OK);
 		}
 	}
-	
-// Listar DTO Ediciones
-//	@GetMapping("/lista-dto")
-//	public ResponseEntity<List<EdicionDTO>> listardto(){
-//		List<EdicionDTO> lista = edicionService.findEdicion();
-//		return new ResponseEntity<List<EdicionDTO>>(lista, HttpStatus.OK);
-//	}
 
 //ListarEdiciones
 	@GetMapping("/lista")

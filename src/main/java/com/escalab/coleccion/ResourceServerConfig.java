@@ -37,7 +37,7 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 			.antMatchers("/cartas**/").permitAll()
 			.antMatchers("/colecciones/**").permitAll()
 			.antMatchers("/grupo-coleccion/**").permitAll()
-			.antMatchers("/ediciones/**").permitAll()
+			.antMatchers("/ediciones/**").hasRole("ADMIN")
 			.antMatchers("/usuarios/**").permitAll()
 			.antMatchers("/tokens/**").permitAll()
 			.antMatchers("/swagger.ui.html/**").authenticated()

@@ -1,12 +1,18 @@
 package com.escalab.coleccion.controller;
 
+import static org.springframework.hateoas.mvc.ControllerLinkBuilder.linkTo;
+import static org.springframework.hateoas.mvc.ControllerLinkBuilder.methodOn;
+
 import java.net.URI;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.hateoas.mvc.ControllerLinkBuilder;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,6 +24,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
+import com.escalab.coleccion.dto.GrupoColeccionDTO;
 import com.escalab.coleccion.exception.ModeloNotFoundException;
 import com.escalab.coleccion.model.GrupoColeccionModel;
 import com.escalab.coleccion.service.IGrupoColeccionService;
@@ -29,6 +36,29 @@ public class GrupoColeccionController {
 	
 	@Autowired
 	private IGrupoColeccionService grupoColeccionService;
+
+//HATEOAS GrupoColeccion
+	@GetMapping(value = "/hateoas-grupocoleccion-usuario", produces = MediaType.APPLICATION_JSON_VALUE)
+	public List<GrupoColeccionDTO> listarHateoas() {
+		List<GrupoColeccionModel> grupoColeccion = new ArrayList<>();
+		List<GrupoColeccionDTO> grupoColeccionDTO = new ArrayList<>();
+		grupoColeccion = grupoColeccionService.listar();
+
+		for (GrupoColeccionModel gc : grupoColeccion) {
+			GrupoColeccionDTO gcdto = new GrupoColeccionDTO();
+			gcdto.setIdGrupoColeccion(gc.getIdGrupoColeccion());
+			gcdto.setUsuario(gc.getUsuarioModel());
+
+			ControllerLinkBuilder linkTo = linkTo(methodOn(GrupoColeccionController.class).listarPorId((gc.getIdGrupoColeccion())));
+			gcdto.add(linkTo.withSelfRel());
+
+			ControllerLinkBuilder linkTo1 = linkTo(methodOn(UsuarioController.class).listarPorId((gc.getUsuarioModel().getIdUsuario())));
+			gcdto.add(linkTo1.withSelfRel());
+
+			grupoColeccionDTO.add(gcdto);
+		}
+		return grupoColeccionDTO;
+	}
 	
 //BuscarPorID
 	@GetMapping("/{id}")
