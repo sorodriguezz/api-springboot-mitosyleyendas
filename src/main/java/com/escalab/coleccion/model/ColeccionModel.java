@@ -10,19 +10,26 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 @Entity
 @Table(name = "COLECCION")
+@ApiModel("Modelo Coleccion")
 public class ColeccionModel {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@ApiModelProperty(value = "Id de la coleccion", required = true)
 	private Integer idColeccion;
 	
 	@Column(name = "NOMBRE_COLECCION", nullable = false, length = 30)
+	@ApiModelProperty(value = "Nombre de la coleccion, maximo 30 caracteres y no admite nulo", required = true)
 	private String nombreColeccion;
 	
 	@ManyToOne
 	@JoinColumn(name = "FK_ID_GROUPCOLECTION", nullable = false, foreignKey = @ForeignKey(name = "FK_COLECCION_GRUPOCOLECCION"))
+	@ApiModelProperty(value = "Id del grupo que pertenece la coleccion", required = true)
 	private GrupoColeccionModel grupoColeccionModel;
 
 	public ColeccionModel() {

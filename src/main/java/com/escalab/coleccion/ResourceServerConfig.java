@@ -34,14 +34,15 @@ public class ResourceServerConfig extends ResourceServerConfigurerAdapter {
 		.requestMatchers()
 		.and()
 		.authorizeRequests()
-			.antMatchers("/cartas**/").permitAll()
-			.antMatchers("/colecciones/**").permitAll()
-			.antMatchers("/grupo-coleccion/**").permitAll()
-			.antMatchers("/ediciones/**").permitAll()
-			.antMatchers("/usuarios/**").permitAll()
+			.antMatchers("/cartas**/").authenticated()
+			.antMatchers("/colecciones/**").authenticated()
+			.antMatchers("/grupo-coleccion/**").authenticated()
+			.antMatchers("/ediciones/**").authenticated()
+			.antMatchers("/usuarios/**").authenticated()
 			.antMatchers("/tokens/**").permitAll()
-			.antMatchers("/swagger.ui.html/**").authenticated()
-			.antMatchers("/usuarios/getAll/*").hasRole("USER");
+			.antMatchers("/swagger.ui.html/**").permitAll();
 	}
 
 }
+
+//.antMatchers("/usuarios/lista/*").hasRole("ADMIN");

@@ -5,10 +5,15 @@ import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+
+import io.swagger.annotations.ApiModelProperty;
+
 import javax.persistence.JoinColumn;
 
 @Entity
@@ -16,18 +21,24 @@ import javax.persistence.JoinColumn;
 public class Usuario {
 	
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@ApiModelProperty(value = "Id del usuario", required = true)
 	private Integer idUsuario;
 	
 	@Column(name = "nombre", nullable = false)
+	@ApiModelProperty(value = "Nombre del usuario", required = true)
 	private String username;
 	
 	@Column(name = "clave", nullable = false)
+	@ApiModelProperty(value = "Contraseña del usuario", required = true)
 	private String password;
 	
 	@Column(name = "estado", nullable = false)
+	@ApiModelProperty(value = "Estado del usuario", required = true)
 	private boolean enabled;
 	
 	@ManyToMany(fetch = FetchType.EAGER)
+	@ApiModelProperty(value = "Id del rol al que pertenece el usuario", required = true)
 	@JoinTable(name = "usuario_rol", joinColumns = @JoinColumn(name = "id_usuario", referencedColumnName = "idUsuario"), inverseJoinColumns = @JoinColumn(name = "id_rol", referencedColumnName = "idRol"))
 	private List<Rol> roles;
 

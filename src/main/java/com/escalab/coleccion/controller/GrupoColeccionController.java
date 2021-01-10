@@ -29,6 +29,8 @@ import com.escalab.coleccion.exception.ModeloNotFoundException;
 import com.escalab.coleccion.model.GrupoColeccionModel;
 import com.escalab.coleccion.service.IGrupoColeccionService;
 
+import io.swagger.annotations.ApiOperation;
+
 
 @RestController
 @RequestMapping("/grupo-coleccion")
@@ -39,6 +41,7 @@ public class GrupoColeccionController {
 
 //HATEOAS GrupoColeccion
 	@GetMapping(value = "/hateoas-grupocoleccion-usuario", produces = MediaType.APPLICATION_JSON_VALUE)
+	@ApiOperation(value="Hateoas de  grupo coleccion y usuario", notes="Listar Hateoas de Grupo Coleccion y Usuario")
 	public List<GrupoColeccionDTO> listarHateoas() {
 		List<GrupoColeccionModel> grupoColeccion = new ArrayList<>();
 		List<GrupoColeccionDTO> grupoColeccionDTO = new ArrayList<>();
@@ -62,6 +65,7 @@ public class GrupoColeccionController {
 	
 //BuscarPorID
 	@GetMapping("/{id}")
+	@ApiOperation(value="Buscar Grupo Coleccion por ID", notes="Buscar Grupo de Coleccion por ID en la base de datos")
 	public ResponseEntity<GrupoColeccionModel> listarPorId(@PathVariable("id") Integer id){
 		GrupoColeccionModel cm = grupoColeccionService.leerPorId(id);
 		if(cm.getIdGrupoColeccion() == null) {
@@ -73,28 +77,32 @@ public class GrupoColeccionController {
 	
 //ListarGrupoColeccion
 	@GetMapping("/lista")
+	@ApiOperation(value="Lista Grupo Coleccion", notes="Listar todos los Grupos de Colecciones registrados en la base de datos")
 	public ResponseEntity<List<GrupoColeccionModel>> listar(){
 		List<GrupoColeccionModel> lista = grupoColeccionService.listar();
 		return new ResponseEntity<List<GrupoColeccionModel>>(lista, HttpStatus.OK);
 	}
 	
-//InsertarCartas
+//InsertarGrupoColeccion
 	@PostMapping
+	@ApiOperation(value="Registrar nuevo Grupo Coleccion", notes="Registrar una nueva coleccion en la base de datos")
 	public ResponseEntity<Object> registrar(@Valid @RequestBody GrupoColeccionModel grupoColeccion) {
 		GrupoColeccionModel gcm = grupoColeccionService.registrar(grupoColeccion);
 		URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(grupoColeccion.getIdGrupoColeccion()).toUri();
 		return ResponseEntity.created(location).build();
 	}
 	
-//EditarCartas
+//EditarGrupoColeccion
 	@PutMapping
+	@ApiOperation(value="Editar Grupo Coleccion", notes="Editar Grupo Coleccion existente por ID en endpoint")
 	public ResponseEntity<GrupoColeccionModel> modificar(@Valid @RequestBody GrupoColeccionModel grupoColeccion){
 		GrupoColeccionModel gcm = grupoColeccionService.modificar(grupoColeccion);
 		return new ResponseEntity<GrupoColeccionModel>(gcm, HttpStatus.OK);
 	}
 	
-//EliminarCartas
+//EliminarGrupoColeccion
 	@DeleteMapping("/{id}")
+	@ApiOperation(value="Eliminar Grupo Coleccion", notes="Eliminar Grupo Coleccion por ID")
 	public ResponseEntity<Object> eliminar(@PathVariable("id") Integer id){
 		GrupoColeccionModel gcm = grupoColeccionService.leerPorId(id);
 		if(gcm.getIdGrupoColeccion() == null) {

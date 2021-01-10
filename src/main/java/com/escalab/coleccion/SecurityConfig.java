@@ -35,9 +35,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	@Value("${security.security-realm}")
 	private String securityRealm;
 	
-	
-	// Beans
-	
 	@Autowired	
 	private UserDetailsService userDetailsService;
 	

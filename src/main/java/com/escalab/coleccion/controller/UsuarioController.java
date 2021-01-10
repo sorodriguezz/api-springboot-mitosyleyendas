@@ -16,6 +16,8 @@ import com.escalab.coleccion.exception.ModeloNotFoundException;
 import com.escalab.coleccion.model.Usuario;
 import com.escalab.coleccion.service.IUsuarioService;
 
+import io.swagger.annotations.ApiOperation;
+
 @RestController
 @RequestMapping("/usuarios")
 public class UsuarioController {
@@ -25,16 +27,23 @@ public class UsuarioController {
 
 //Listar usuarios
 	@GetMapping("/lista")
+	@ApiOperation(value="Listar Usuarios", notes="Listar todos los usuarios")
 	public ResponseEntity<List<Usuario>> getAll(){
-		List<Usuario> lista = userService.listar();
-		return new ResponseEntity<List<Usuario>>(lista, HttpStatus.OK);
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		if (auth != null && auth.getAuthorities().stream().anyMatch(a -> a.getAuthority().equals("DBA")) || auth.getAuthorities().stream().anyMatch(a -> a.getAuthority().equals("ADMIN") )) {
+			List<Usuario> lista = userService.listar();
+			return new ResponseEntity<List<Usuario>>(lista, HttpStatus.OK);
+		} else {
+			return new ResponseEntity<List<Usuario>>( HttpStatus.UNAUTHORIZED);
+		}
 	}
 
 //ListarUsuario por ID
 	@GetMapping("/{id}")
+	@ApiOperation(value="Buscar Usuario por ID", notes="Buscar usuario por ID en el endpoint")
 	public ResponseEntity<Usuario> listarPorId(@PathVariable("id") Integer id){
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-		if (auth != null && auth.getAuthorities().stream().anyMatch(a -> a.getAuthority().equals("ADMIN"))) {
+		if (auth != null && auth.getAuthorities().stream().anyMatch(a -> a.getAuthority().equals("DBA")) || auth.getAuthorities().stream().anyMatch(a -> a.getAuthority().equals("ADMIN") )) {
 			Usuario obj = userService.leerPorId(id);
 			if(obj.getIdUsuario() == null) {
 				throw new ModeloNotFoundException("ID NO ENCONTRADO " + id);
@@ -46,3 +55,5 @@ public class UsuarioController {
 	}
 
 }
+
+//@PreAuthorize("hasRole('ADMIN')")

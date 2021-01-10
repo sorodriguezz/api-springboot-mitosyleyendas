@@ -22,6 +22,8 @@ import com.escalab.coleccion.exception.ModeloNotFoundException;
 import com.escalab.coleccion.model.ColeccionModel;
 import com.escalab.coleccion.service.IColeccionService;
 
+import io.swagger.annotations.ApiOperation;
+
 @RestController
 @RequestMapping("/colecciones")
 public class ColeccionController {
@@ -31,6 +33,7 @@ public class ColeccionController {
 	
 //BuscarPorID
 	@GetMapping("/{id}")
+	@ApiOperation(value="Buscar Coleccion por ID", notes="Buscar coleccion por ID dentro de la base de datos")
 	public ResponseEntity<ColeccionModel> listarPorId(@PathVariable("id") Integer id){
 		ColeccionModel cm = coleccionService.leerPorId(id);
 		if(cm.getIdColeccion() == null) {
@@ -42,6 +45,7 @@ public class ColeccionController {
 
 //ListarColeccion
 	@GetMapping("/lista")
+	@ApiOperation(value="Listar todas las Colecciones", notes="Listar todas las colecciones que esten registradas")
 	public ResponseEntity<List<ColeccionModel>> listar(){
 		List<ColeccionModel> lista = coleccionService.listar();
 		return new ResponseEntity<List<ColeccionModel>>(lista, HttpStatus.OK);
@@ -49,6 +53,7 @@ public class ColeccionController {
 
 //InsertarColeccion
 	@PostMapping
+	@ApiOperation(value="Registrar Coleccion", notes="Registrar una nueva coleccion en la base de datos")
 	public ResponseEntity<Object> registrar(@Valid @RequestBody ColeccionModel coleccion) {
 		ColeccionModel cm = coleccionService.registrar(coleccion);
 		URI location = ServletUriComponentsBuilder.fromCurrentRequest().path("/{id}").buildAndExpand(coleccion.getIdColeccion()).toUri();
@@ -57,6 +62,7 @@ public class ColeccionController {
 
 //EditarColeccion
 	@PutMapping
+	@ApiOperation(value="Modificar Coleccion", notes="Modificar una coleccion por la ID")
 	public ResponseEntity<ColeccionModel> modificar(@Valid @RequestBody ColeccionModel coleccion){
 		ColeccionModel cm = coleccionService.modificar(coleccion);
 		return new ResponseEntity<ColeccionModel>(cm, HttpStatus.OK);
@@ -64,6 +70,7 @@ public class ColeccionController {
 
 //EliminarColeccion
 	@DeleteMapping("/{id}")
+	@ApiOperation(value="Elimar Coleccion", notes="Eliminar una coleccion por ID")
 	public ResponseEntity<Object> eliminar(@PathVariable("id") Integer id){
 		ColeccionModel cm = coleccionService.leerPorId(id);
 		if(cm.getIdColeccion() == null) {

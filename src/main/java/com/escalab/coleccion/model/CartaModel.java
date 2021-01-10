@@ -15,46 +15,62 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+
 @Entity
 @Table(name = "CARTA")
+@ApiModel("Modelo Carta")
 public class CartaModel {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@ApiModelProperty(value = "Id de la Carta", required = true)
 	private Integer idCarta;
 	
 	@Column(name = "NOMBRE_CARTA", nullable = false, length = 30)
+	@ApiModelProperty(value = "nombre de la Carta, al menos 30 caracteres, no admite nulo", required = true)
 	private String nombreCarta;
 	
 	@Column(name = "COSTE_CARTA", nullable = false, length = 2)
+	@ApiModelProperty(value = "Coste de la Carta, al menos 2 caracteres del 0 al 99, no admite nulo", required = true)
 	private String costeCarta;
 	
 	@Column(name = "HABILIDAD_CARTA", nullable = false, length = 200)
+	@ApiModelProperty(value = "Habilidad de la carta, maximo 200 caracteres y no admite nulo", required = true)
 	private String habilidadCarta;
 	
 	@Column(name = "IMAGEN_CARTA", nullable = false, length = 250)
+	@ApiModelProperty(value = "Imagen de la carta, maximo 250 caracteres y no admite nulo", required = true)
 	private String imagenCarta;
 	
 	@Column(name = "CODIGO_CARTA", nullable = false, length = 7)
+	@ApiModelProperty(value = "Numero de la carta en la edicion, maximo 7 caracteres (1/100) y no admite nulo", required = true)
 	private String codigoCarta;
 	
 	@Column(name = "ILUSTRADOR_CARTA", nullable = false, length = 25)
+	@ApiModelProperty(value = "Ilustrador de la carta, maximo 25 caracteres y no admite nulo", required = true)
 	private String ilustradorCarta;
 	
 	@Column(name = "HISTORIA_CARTA", nullable = false , length = 250)
+	@ApiModelProperty(value = "Historia de la carta, maximo 250 caracteres y no admite nulo", required = true)
 	private String historiaCarta;
 	
 	@Column(name = "FRECUENCIA_CARTA", nullable = false, length = 30)
+	@ApiModelProperty(value = "Rareza de la Carta, maximo 30 caracteres y no admite nulo", required = true)
 	private String frecuenciaCarta;
 	
 	@Column(name = "FUERZA_CARTA", nullable = false, length = 2)
+	@ApiModelProperty(value = "Fuerza o daño que realiza la carta, maximo 2 caracteres (del 0 al 99) y no admite nulo", required = true)
 	private String fuerzaCarta;
 	
 	@Column(name = "TIPO_CARTA", nullable = false, length = 30)
+	@ApiModelProperty(value = "Tipo de Carta, maximo 30 caracteres y no admite nulo", required = true)
 	private String tipoCarta;
 
 	
 	@ManyToMany(fetch = FetchType.EAGER)
+	@ApiModelProperty(value = "Id de la coleccion que pertenece la carta", required = true)
 	@JoinTable(name = "COLECCION_CARTA", joinColumns = @JoinColumn(name = "ID_CARTA", referencedColumnName = "idCarta"), inverseJoinColumns = @JoinColumn(name = "ID_COLECCION", referencedColumnName = "idColeccion"))
 	private List<ColeccionModel> coleccion;
 	
