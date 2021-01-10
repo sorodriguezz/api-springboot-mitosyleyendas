@@ -1,3 +1,5 @@
+-------------------------   EJEMPLOS DE QUERY  ----------------------------
+
 insert into public.usuario (id_usuario, estado, clave, nombre)
 values  (1, true, '$2a$10$ju20i95JTDkRa7Sua63JWOChSBc0MNFtG/6Sps2ahFFqN.HCCUMW.', 'srodriguez@gmail.com'),
         (2, true, '$2a$10$ju20i95JTDkRa7Sua63JWOChSBc0MNFtG/6Sps2ahFFqN.HCCUMW.', 'pmartinez@gmail.com'),

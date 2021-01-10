@@ -1,0 +1,933 @@
+{
+	"info": {
+		"_postman_id": "905df24f-d659-4729-9039-f6f0bbb1d32c",
+		"name": "Proyecto-escalab",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Ediciones",
+			"item": [
+				{
+					"name": "Listar Ediciones",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "code89codex",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "codemediapp",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/ediciones/lista",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"ediciones",
+								"lista"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar ediciones por id",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "code89codex",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "codemediapp",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/ediciones/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"ediciones",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Agregar ediciones",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "code89codex",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "codemediapp",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"anioEdicion\": \"2012\",\r\n    \"nombreEdicion\": \"edicionnueva\",\r\n    \"numeroCartasEdicion\": \"230\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/ediciones",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"ediciones"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Editar edicion",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "code89codex",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "codemediapp",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/ediciones/3",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"ediciones",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Editar ediciones",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "code89codex",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "codemediapp",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{   \r\n    \"idEdicion\": 2,\r\n    \"nombreEdicion\": \"edici45onnueva\",\r\n    \"anioEdicion\": \"2026\",\r\n    \"numeroCartasEdicion\": \"255\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/ediciones",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"ediciones"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Cartas",
+			"item": [
+				{
+					"name": "Listar cartas",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "code89codex",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "codemediapp",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/cartas/lista",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cartas",
+								"lista"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "listar cartas por id",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "code89codex",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "codemediapp",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/cartas/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cartas",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Crear nueva carta",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "code89codex",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "codemediapp",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"codigoCarta\": \"6/200\",\r\n    \"costeCarta\": \"5\",\r\n    \"frecuenciaCarta\": \"Real\",\r\n    \"fuerzaCarta\": \"3\",\r\n    \"habilidadCarta\": \"bola de fuego\",\r\n    \"historiaCarta\": \"historiaCarta\",\r\n    \"ilustradorCarta\": \"mauricio herrera\",\r\n    \"imagenCarta\": \"genzo.jpg\",\r\n    \"nombreCarta\": \"bola de fuego\",\r\n    \"tipoCarta\": \"Talisman\",\r\n    \"edicionModel\": {\r\n        \"idEdicion\": \"1\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/cartas/",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cartas",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Editar carta",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "code89codex",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "codemediapp",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idCarta\": 13,\r\n    \"codigoCarta\": \"6/200\",\r\n    \"costeCarta\": \"5\",\r\n    \"frecuenciaCarta\": \"Real\",\r\n    \"fuerzaCarta\": \"5\",\r\n    \"habilidadCarta\": \"bola de fuego\",\r\n    \"historiaCarta\": \"historiaCarta\",\r\n    \"ilustradorCarta\": \"mauricio herrera\",\r\n    \"imagenCarta\": \"genzo.jpg\",\r\n    \"nombreCarta\": \"bola de fuego\",\r\n    \"tipoCarta\": \"Talisman\",\r\n    \"edicionModel\": {\r\n        \"idEdicion\": \"1\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/cartas",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cartas"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar carta",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsiY29kZXJlc291cmNlaWQiXSwidXNlcl9uYW1lIjoibWZsb3JlcyIsInNjb3BlIjpbInJlYWQiLCJ3cml0ZSJdLCJleHAiOjE2MTAyNDY0MDMsImF1dGhvcml0aWVzIjpbIkRCQSJdLCJqdGkiOiIwOGZmMjE3OC1hMjdiLTQ2NWQtODA1Zi1kZDNiYmRjMzgzYzciLCJjbGllbnRfaWQiOiJjb2xlY2Npb24ifQ.QytmD1nr9meuhQU3ObdJiSPa4XnDPXdCXBcjuSudUK4",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/cartas/12",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cartas",
+								"12"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Hateoas carta-edicion",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "code89codex",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "codemediapp",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/cartas/hateoas-carta-edicion",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"cartas",
+								"hateoas-carta-edicion"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "GrupoColeccion",
+			"item": [
+				{
+					"name": "Listar Grupos coleccion",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "code89codex",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "codemediapp",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/grupo-coleccion/lista",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"grupo-coleccion",
+								"lista"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar por ID",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "code89codex",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "codemediapp",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/grupo-coleccion/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"grupo-coleccion",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Registrar grupo coleccion",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "code89codex",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "codemediapp",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombreGrupoColeccion\": \"coleccion 2\",\r\n    \"usuarioModel\": {\r\n        \"idUsuario\": \"2\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/grupo-coleccion/",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"grupo-coleccion",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Editar grupo coleccion",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "code89codex",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "codemediapp",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{   \r\n    \"idGrupoColeccion\": \"2\",\r\n    \"nombreGrupoColeccion\": \"segunda coleccion\",\r\n    \"usuarioModel\": {\r\n        \"idUsuario\": \"2\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/grupo-coleccion",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"grupo-coleccion"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar grupo coleccion",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "code89codex",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "codemediapp",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/grupo-coleccion/2",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"grupo-coleccion",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Hateoas-grupocoleccion-usuario",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "code89codex",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "codemediapp",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/grupo-coleccion/hateoas-grupocoleccion-usuario",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"grupo-coleccion",
+								"hateoas-grupocoleccion-usuario"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Coleccion",
+			"item": [
+				{
+					"name": "Listar colecciones",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "code89codex",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "codemediapp",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/colecciones/lista",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"colecciones",
+								"lista"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar coleccion por ID",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "code89codex",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "codemediapp",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/colecciones/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"colecciones",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Registrar coleccion",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "code89codex",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "codemediapp",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nombreColeccion\": \"Furia\",\r\n    \"grupoColeccionModel\": {\r\n        \"idGrupoColeccion\": \"1\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/colecciones/",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"colecciones",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Editar coleccion",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "code89codex",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "codemediapp",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idColeccion\": \"2\",\r\n    \"nombreColeccion\": \"Espada sagrada\",\r\n    \"grupoColeccionModel\": {\r\n        \"idGrupoColeccion\": \"1\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/colecciones/",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"colecciones",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Eliminar coleccion",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "code89codex",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "codemediapp",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/colecciones/2",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"colecciones",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Usuarios",
+			"item": [
+				{
+					"name": "Listar usuarios",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "code89codex",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "codemediapp",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/usuarios/lista",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"usuarios",
+								"lista"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Token user",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "coleccioncartas",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "coleccion",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "username",
+									"value": "mflores",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123",
+									"type": "text"
+								},
+								{
+									"key": "grant_type",
+									"value": "password",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "localhost:8080/oauth/token",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"oauth",
+								"token"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
