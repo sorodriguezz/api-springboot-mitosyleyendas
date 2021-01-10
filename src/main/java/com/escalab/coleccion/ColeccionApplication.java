@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class MediappBackendApplication {
+public class ColeccionApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(MediappBackendApplication.class, args);
+		SpringApplication.run(ColeccionApplication.class, args);
 	}
 	
 }

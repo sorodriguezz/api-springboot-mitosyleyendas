@@ -11,7 +11,7 @@
 	<groupId>com.escalab</groupId>
 	<artifactId>mediapp-backend</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>mediapp-backend</name>
+	<name>coleccion</name>
 	<description>Restserver spring boot</description>
 
 	<properties>
