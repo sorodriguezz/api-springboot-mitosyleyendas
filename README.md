@@ -2,6 +2,23 @@
 
 Este proyecto contiene la API que permite gestionar colecciones de cartas del juego Mitos y Leyendas. Dentro del servicio, las cartas y ediciones deben ser agregadas, eliminadas, editadas por el adminitrador de servicio. El usuario solo se encarga de crear su grupo de colecciones, crear las colecciones que el desee e ir seleccionando cartas que el crea correspondiente para agregar a su colección escogida. 
 
+## Pre-requisitos
+* Spring Boot Tools Suite
+* Postman
+* Navegador
+* Git
+* PostgreSQL
+* pgAdmin4
+
+## Cómo clonar el repositorio
+
+Para clonar el repositorio usar:
+```
+$ git clone https://github.com/soRodriguezz/proyecto-escalab.git
+```
+
+Posteriormente importar a Eclipse, Spring Tools Suite, etc.
+
 ## Contenido de la carta
 
 Una carta de Mitos y Leyendas contiene:
@@ -19,15 +36,6 @@ Una carta de Mitos y Leyendas contiene:
 <p align="center">
   <img align="center" src="https://i.imgur.com/bBmuWo2.jpg" width="330" title="Carta Mitos y Leyendas">
 </p>
-
-## Comó clonar el repositorio
-
-Para clonar el repositorio usar:
-```
-$ git clone https://github.com/soRodriguezz/proyecto-escalab.git
-```
-
-Posteriormente importar a Eclipse, Spring Tools Suite, etc.
 
 ## Documentación proyecto
 
